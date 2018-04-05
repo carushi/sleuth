@@ -344,8 +344,12 @@ sleuth_prep <- function(
     ret$tpm_sf <- tpm_sf
 
     #### This code through the for loop is a candidate for moving to another function
+    print(kal_dirs)
     path <- kal_dirs[1]
     kal_path <- get_kallisto_path(path)
+    print(path)
+    print(kal_path)
+    print(kal_path$path)
     target_id <- as.character(rhdf5::h5read(kal_path$path, "aux/ids"))
     num_transcripts <- length(target_id)
     ret$bs_quants <- list()
